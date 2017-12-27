@@ -58,7 +58,7 @@ abi = JSON.parse('[{"constant":true,"inputs":[{"name":"","type":"uint256"}],"nam
           console.log(result)
         else
           console.error(error);
-        document.getElementById('tabela1').innerHTML += '<tr> <td> <a href="#">' + hex2a(result) +"</a></td> <td> </td> </tr>";
+        document.getElementById('tabela1').innerHTML += '<tr> <td> <a href="#" onclick = "aposteEm(' + result + ')">' + hex2a(result) +"</a></td> <td> </td> </tr>";
       });
     }
   });
@@ -85,6 +85,20 @@ abi = JSON.parse('[{"constant":true,"inputs":[{"name":"","type":"uint256"}],"nam
 
 }
 
+function aposteEm(pais){
+   console.log(pais);  
+   console.log(hex2a(pais));
+}
+
+
+function hex2a(hexx) {
+    var hex = hexx.toString();//force conversion
+    var str = '';
+    for (var i = 2; i < hex.length; i += 2)
+        str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+    return str;
+}
+
 
 
 //function voteForCandidate() {
@@ -105,13 +119,4 @@ abi = JSON.parse('[{"constant":true,"inputs":[{"name":"","type":"uint256"}],"nam
 //       }
 //     });
 //}
-
-
-function hex2a(hexx) {
-    var hex = hexx.toString();//force conversion
-    var str = '';
-    for (var i = 2; i < hex.length; i += 2)
-        str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
-    return str;
-}
 
