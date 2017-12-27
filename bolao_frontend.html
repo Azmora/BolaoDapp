@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta http-equiv="content-type" content="text/html"; charset="iso-8859-" />
+  <title>Dapp do Bolao: Rede de Teste</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+
+</head>
+<body class="container">
+  <h1>Bolao da Copa: Versao 0.1</h1>
+  <p id="nomeBolao"><br><br></p>
+  <p id="nomeBolao2"><br><br></p>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Paises</th>
+          <th>Apostadores</th>
+        </tr>
+      </thead>
+      <tbody id=tabela1>
+      </tbody>
+    </table>
+  </div>
+  <input type="text" id="myInput" />
+  <a href="#" onclick="voteForCandidate()" class="btn btn-primary">Vote</a>
+
+<script>
+function myFunction() {
+    var input, filter, tr, th, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    tr = document.getElementById("tabela1");
+    th = tr.getElementsByTagName("tr");
+    for (i = 0; i < li.length; i++) {
+        a = th[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            th[i].style.display = "";
+        } else {
+            th[i].style.display = "none";
+
+        }
+    }
+}
+</script>
+
+</body>
+<script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+<script src="./bolao_frontend.js"></script>
+</html>
