@@ -62,6 +62,7 @@ abi = JSON.parse('[{"constant":true,"inputs":[{"name":"","type":"uint256"}],"nam
       });
     }
   });
+}
 
 function aposteEm(pais){
    console.log(pais); 
