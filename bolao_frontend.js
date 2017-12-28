@@ -58,38 +58,27 @@ abi = JSON.parse('[{"constant":true,"inputs":[{"name":"","type":"uint256"}],"nam
           console.log(result)
         else
           console.error(error);
-        document.getElementById('tabela1').innerHTML += '<tr> <td> <a href="#" onclick = "aposteEm(' + result.toString(16)  +')">' + hex2a(result) +"</a></td> <td> </td> </tr>";
+         document.getElementById('tabela1').innerHTML += '<tr> <td> <a href="#" onclick = "aposteEm( \'' + result.toString(32)  +'\' )">' + hex2a(result)+"</a></td> <td> </td> </tr>";
       });
     }
   });
 
-//document.getElementById('nomeBolao2').innerHTML += "Ha quanto mesmo: " + valTemp2 +" paises";
-  
-
-  candidateNames = Object.keys(candidates);
-  for (var i = 0; i < candidateNames.length; i++) {
-    let name = candidateNames[i];
-//    let val = contractInstance.totalVotesFor.call(name, function(error,result){
-//        if(!error)
-//           console.log(result)
-//        else
-//           console.error(error);
-
-        //let val2 = val.toString();
-    
-//        $("#" + candidates[name]).html(result+" ");
-//    });
-    
-  }
-
-
-}
-
 function aposteEm(pais){
    console.log(pais); 
-   pais_hex = parseInt(pais, 16);
-   console.log(pais_hex); 
-   console.log("  "+hex2a(pais_hex));
+   pais_hex = parseInt(pais, 32);
+   web3.eth.getAccounts(function(error, result){
+     if(!error){
+       console.log(result);
+       console.log(result[0]);
+       //usar como valor, o valor do ticket
+       contractInstance.aposta(pais, {from: result[0], value: 1000000000000000 }, function(error2, result2) {
+         if(!error){
+           console.log("apostou...");
+         }
+       });
+     }   
+   });
+  
 }
 
 
