@@ -88,6 +88,7 @@ abi = JSON.parse('[{"constant":true,"inputs":[{"name":"","type":"uint256"}],"nam
 function aposteEm(pais){
    console.log(pais); 
    pais_hex = parseInt(pais, 16);
+   console.log(pais_hex); 
    console.log("  "+hex2a(pais_hex));
 }
 
