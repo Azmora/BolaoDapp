@@ -58,7 +58,7 @@ abi = JSON.parse('[{"constant":true,"inputs":[{"name":"","type":"uint256"}],"nam
           console.log(result)
         else
           console.error(error);
-        document.getElementById('tabela1').innerHTML += '<tr> <td> <a href="#" onclick = "aposteEm(' + hex2a(result) + ')">' + hex2a(result) +"</a></td> <td> </td> </tr>";
+        document.getElementById('tabela1').innerHTML += '<tr> <td> <a href="#" onclick = "aposteEm(' +'"'+hex2a(result) +'"'+ ')">' + hex2a(result) +"</a></td> <td> </td> </tr>";
       });
     }
   });
