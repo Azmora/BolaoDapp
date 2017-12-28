@@ -58,7 +58,7 @@ abi = JSON.parse('[{"constant":true,"inputs":[{"name":"","type":"uint256"}],"nam
           console.log(result)
         else
           console.error(error);
-        document.getElementById('tabela1').innerHTML += '<tr> <td> <a href="#" onclick = "aposteEm(' + result.toString()  +')">' + hex2a(result) +"</a></td> <td> </td> </tr>";
+        document.getElementById('tabela1').innerHTML += '<tr> <td> <a href="#" onclick = "aposteEm(' + result.toString(16)  +')">' + hex2a(result) +"</a></td> <td> </td> </tr>";
       });
     }
   });
@@ -86,8 +86,9 @@ abi = JSON.parse('[{"constant":true,"inputs":[{"name":"","type":"uint256"}],"nam
 }
 
 function aposteEm(pais){
-   console.log(pais);  
- //  console.log(hex2a(pais));
+   console.log(pais); 
+   pais_hex = parseInt(pais, 16);
+   console.log("  "+hex2a(pais_hex));
 }
 
 
