@@ -75,7 +75,7 @@ function comecou()
     Promise.all(p).then(function(response,rejection)  {
       paises.sort();
       for(var i=0; i < numDePaises; i++) {
-        document.getElementById('tabela1').innerHTML += '<tr> <td> <a href="#" onclick = "aposteEm( \'' + paises[i].toString(32) +'\' )">' + paises[i]+"</a></td> <td>"+ apostasNoPais[paises[i]] +" </td> </tr>";
+        document.getElementById('tabela1').innerHTML += '<tr> <td> <a href="#" onclick = "aposteEm( \'' + paises[i] +'\' )">' + hex2a(paises[i])+"</a></td> <td>"+ apostasNoPais[paises[i]] +" </td> </tr>";
        
       }//end for
     });//end Promise.all(p)
