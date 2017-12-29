@@ -59,7 +59,7 @@ function comecou()
             console.error(error); 
             reject(error);
           } else {
-            paises[paises.length]= hex2a(result);
+            paises[paises.length]= result.toString(32);
             
 //          console.log(hex2a(result));
             contractInstance.apostadoresNoPais(hex2a(result),function(error,result2){
