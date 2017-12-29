@@ -63,7 +63,7 @@ function comecou()
             
 //          console.log(hex2a(result));
             contractInstance.apostadoresNoPais(hex2a(result),function(error,result2){
-              apostasNoPais[hex2a(result)] = result2.toNumber();
+              apostasNoPais[result.toString(32)] = result2.toNumber();
 //            console.log(apostasNoPais[hex2a(result)]); console.log(hex2a(result));
               resolve(1);
             });//end contract method (most internal)
