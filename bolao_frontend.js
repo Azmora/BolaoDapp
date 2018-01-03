@@ -15,7 +15,7 @@ window.addEventListener('load', function(){
 
   bolaoContract = web3.eth.contract(abi);
   // In your nodejs console, execute contractInstance.address to get the address at which the contract is deployed and change the line below to use your deployed address
-  contractInstance = bolaoContract.at('0x4f9f7a7d4702993d502809d442a3ffa0e989eebe');
+  contractInstance = bolaoContract.at('0x3280db91901bb10a8a90bd6e3488d415bc2321ac');
   comecou()
 })
 
