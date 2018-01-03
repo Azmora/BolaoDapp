@@ -51,6 +51,7 @@ abi = JSON.parse('[{"constant":true,"inputs":[{"name":"","type":"uint256"}],"nam
     else
       console.error(error);
     document.getElementById('nomeBolao2').innerHTML = "Ha: " + result +" paises.";
+    if(result == 0){ result = 33;} 
 
     for(var i=0; i < result; i++) {
       let valTemp3 = contractInstance.paises(i,function(error,result){
