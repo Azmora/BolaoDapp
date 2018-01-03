@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta http-equiv="content-type" content="text/html"; charset="utf-8" />
+  <title>Dapp do Bolao: Rede de Teste</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">7
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Playfair Display";
+    letter-spacing: 5px;
+}
+</style>
+
+
+<script>
+function accordion(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+
+
+</head>
+<body>
+
+<!-- Navbar - fica em cima   -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large ">TITULUM <!--- <br> contratos decentralizados --> </a>
+        <a href="http://www.blog.titulum.com.br" target="_blank" class="w3-bar-item w3-padding-large w3-button w3-right">Blog</a> 
+       <a href="como-usar.html" class="w3-bar-item w3-padding-large w3-button w3-right">Instruções</a> 
+
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-dropdown-hover w3-right">
+      <button class="w3-padding-large w3-button" title="More">Dapps <i class="fa fa-caret-down"></i></button>     
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a href="bolao_dapp.html" class="w3-bar-item w3-button">Bolão</a>
+        <a href="http://titulum.com.br/testes/cidades_dapp.html" class="w3-bar-item w3-button">Vote Na Melhor Cidade</a>
+      </div>
+
+
+      </div>
+    
+    </div>
+  </div>
+
+
+
+<div class="w3-container w3-padding-16 w3-content" style="max-width:1100px">
+<br> <br><br>
+<h1 class="w3-center"> Instruções para Usar os Dapps </h1>
+<button onclick="accordion('Introducao')" class="w3-btn w3-block w3-left-align w3-pale-green"><h4> Introdução </h4></button>
+<div id="Introducao" class="w3-container w3-hide w3-padding-16 ">
+<p>
+Um aplicativo decentralizado (Dapp) utiliza as vantagens da tecnologia do blockchain. Mas para usar um Dapp é necessário que seu computador se comunique com o blockchain associado a ele. Os Dapps deste site usam o Ethereum e uma forma conveniente de se comunicar com seu blockchain é usando o plugin do Chrome (o Browser da Google) chamado de Metamask.
+</p>
+<p>
+O Metamask é na verdade uma carteira do Ethereum e serve para tanto para guardar e transferir Ethers (uma criptomoeda parecida com o Bitcoin) como para interagir com os Dapps do Ethereum.
+</p>
+</div>
+
+
+<button onclick="accordion('TiposDeEther')" class="w3-btn w3-block w3-left-align w3-green"><h4> Ether "real" e ether de "teste"</h4></button>
+<div id="TiposDeEther" class="w3-container w3-hide w3-padding-16 ">
+<p>
+Para usar algumas funções dos Dapps é necessário usar pequenas quantidades de ethers.
+
+Há dois tipos de ethers: o ether propriamente dito que custa dinheiro e pertence a rede principal e o ether de teste que não custa nada e pertence a rede de teste. 
+</p><p>
+Para obter o ether de fato, é necessário comprar nos sites de câmbio de criptomoedas (as Exchanges). Já o ether de teste não tem valor monetário, serve para fazer testes e poderá deixar de existir num futuro próximo. Para obtê-los existem os Faucets (torneira em inglês).
+</p>
+</div>
+
+
+<button onclick="accordion('Metamask')" class="w3-btn w3-block w3-left-align w3-pale-green"><h4> O passo-a-passo para instalar o Metamask </h4></button>
+<div id="Metamask" class="w3-container w3-hide w3-padding-16 ">
+<p>
+O passo-a-passo para instalar o Metamask é o seguinte: <br>
+<br>
+1.       Abra o Chrome ou o instale, caso não o tenha;
+<br>
+2.       Vá para a página do Metamask <a href="https://metamask.io/" target="_blank" > (clique aqui) </a> e clique no link “Get Chrome Extension”;
+<br>
+3.       Na parte de cima, a direita, clique em adicionar.
+</p>
+</div>
+
+
+<button onclick="accordion('MetamaskNovo')" class="w3-btn w3-block w3-left-align w3-green"><h4> O passo-a-passo para o primeiro uso do Metamask</h4></button>
+<div id="MetamaskNovo" class="w3-container w3-hide w3-padding-16 ">
+<p>
+Após instalado o Metamask, aparecerá no Chrome uma raposa na parte de cima, a direita. Agora é necessário criar uma senha e depois colocar um pouco de Ether na carteira.<br>
+<br>
+1.       Uma vez dentro do Chrome, clique na raposa;
+<br>
+2.       Aceite os Termos e Condições (“Terms of Use”). É necessário ir até o fim do que está escrito usando a barra de rolagem para que o botão “Accept” seja clicável;
+<br>
+3.       Escolha um bom Password;
+<br>
+4.       Aparecerá uma lista de 12 palavras em inglês. Anote elas e guarde em um lugar seguro. Ela é único meio que você tem de recuperar a sua carteira caso seu computador quebre ou você esqueça a sua senha;
+<br>
+5.       Clique em “I’ve copied it somewhere safe”;
+</p>
+</div>
+
+<button onclick="accordion('TiposDeEthe')" class="w3-btn w3-block w3-left-align w3-pale-green"><h4> O passo-a-passo para colocar ethers de teste da rede Ropsten</h4></button>
+<div id="TiposDeEthe" class="w3-container w3-hide w3-padding-16 ">
+<p>
+O passo-a-passo para obter Ethers de teste na rede Ropsten é o seguinte:
+<br><br>
+1.       Troque para rede de teste Ropsten. Para tanto, clique na raposa. Após isto, aparecerá em cima escrito “Main Network”. Clique em cima dele para aparecer uma listagem de redes possíveis. Neste momento, clique em “Ropsten Test Network”;
+<br>
+2.       Clique em "Buy" e em seguida clique "Ropsten Test Faucet". Você será direcionado para o faucet que lhe dara Ethers da rede Ropsten.
+<br>
+3.       Uma vez no site do faucet, clique em "Request 1 ether from faucet"
+</p>
+</div>
+
+<br><br>
+   <!-- Footer -->
+<footer class="w3-container w3-padding-16 w3-center w3-opacity w3-black ">
+<!--
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  -->
+  <div class="w3-bar w3-white  w3-card" style="letter-spacing:4px;">
+  <!---  <a href="http://www.blog.titulum.com.br" class="w3-bar-item w3-button">Blog do Titulum</a>  -->
+</footer>
+
+
+</body>
+<script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+<script src="./bolao_frontend_temp.js"></script>
+</html>
+<!---Ver para colocar um header com CSS https://www.w3schools.com/css/tryit.asp?filename=trycss_template3 </!--> 

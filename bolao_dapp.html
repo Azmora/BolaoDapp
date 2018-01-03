@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta http-equiv="content-type" content="text/html"; charset="utf-8" />
+  <title>Dapp do Bolao: Rede de Teste</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">7
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Playfair Display";
+    letter-spacing: 5px;
+}
+</style>
+
+</head>
+<body>
+
+<!--- Peguei o estilo do https://www.w3schools.com/w3css/tryw3css_templates_gourmet_catering.htm#home -->
+<!-- Navbar - fica em cima   -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large ">TITULUM <!--- <br> contratos decentralizados --> </a>
+    <a href="como-usar.html" class="w3-bar-item w3-padding-large w3-button w3-right">Instruções</a> 
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-dropdown-hover w3-right">
+      <button class="w3-padding-large w3-button" title="More">Bolões <i class="fa fa-caret-down"></i></button>     
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a href="#" class="w3-bar-item w3-button">Bolão 1</a>
+        <a href="#" class="w3-bar-item w3-button">Boolão 2</a>
+      </div>
+
+
+      </div>
+    
+    </div>
+  </div>
+
+
+
+<div class="w3-content" style="max-width:1100px">
+
+<div class="w3-row w3-w3-margin-top" id="about">
+<br><br><br><br>
+    <div class="w3-col m3 w3-margin-top w3-margin-left w3-hide-small">
+     <img src= "https://azmora.github.io/BolaoDapp/8492015907_ff515443f0_o.jpg"   class="w3-round w3-image " width="200" height="200">
+   <!---  <img src="/w3images/tablesetting2.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750"> -->
+    </div>
+
+    <div class="w3-col m8 w3-margin-left">
+  <h1 >Bolão da Copa <br> Versao 0.1</h1>
+  <p id="nomeBolao"  >Nome no Blockchain: </p>
+  <p id='valorAposta'>Valor da aposta: </p>
+  <p id="dataHora" >Data e Hora limite: </p>
+  <p id="qttdPaises" >Número de Países: </p>
+ 
+  
+    </div>
+  </div>
+
+  <div class="w3-container">
+
+
+  <h4 class="w3-center w3-padding" id="apresentacao"  > <strong> Para apostar, clique no país desejado. <br> É necessário o uso do plugin  <a href="https://metamask.io/" target="_blank">  Metamask.<br> É necessário estar na rede Rospten.</strong> <br><br></a> </h4> 
+<div class="w3-container">
+<div class="w3-right">
+ <input type='text' id = 'enderecoApostouOnde' placeholder="Digite um endereço..."> <button onclick="enderecoApostadoEmForm()" "> Colocar Astericos  </button>
+</div>
+<div class="w3-left">
+    Filtro: <input type="text" class="w3-right" id="myInput" style="width:200px" onkeyup="filtrando()" placeholder="Digite para procurar um país...">
+ </div>
+ </div>    
+  <!-- > <a href="#" onclick="voteForCandidate()" class="btn btn-primary">Vote</a>  </!-->
+  <div class="table-responsive">
+  <table class="w3-table w3-striped w3-bordered ">
+  <!--  <table class="table table-bordered"> -->
+      <thead>
+        <tr> 
+          <th>Paises</th>
+          <th>Apostadores</th>
+        </tr>
+      </thead>
+      <tbody id=tabela1>
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+   </div>
+
+
+   <!-- Footer -->
+<footer class="w3-container w3-padding-16 w3-center w3-opacity w3-black ">
+<!--
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  -->
+  <div class="w3-bar w3-white  w3-card" style="letter-spacing:4px;">
+  <!---  <a href="http://www.blog.titulum.com.br" class="w3-bar-item w3-button">Blog do Titulum</a>  -->
+</footer>
+
+</body>
+<script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+<script src="./bolao_frontend_temp.js"></script>
+</html>
+<!---Ver para colocar um header com CSS https://www.w3schools.com/css/tryit.asp?filename=trycss_template3 </!--> 

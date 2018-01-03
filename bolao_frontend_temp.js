@@ -5,10 +5,12 @@ var paises_direto =[];//
 var numDePaises = 0;
 var p = [];
 var apostasNoPais = {};
+var apostasNoPaisEndereco = {};
+var usingInfura = false;
 
 window.addEventListener('load', function(){
   //Injecting web3j to interact with the blockchain
-  var usingInfura = false;
+
   if(typeof web3 !== 'undefined'){
       web3 = new Web3(web3.currentProvider);
       console.log('Metamask or Mist');
@@ -28,15 +30,35 @@ window.addEventListener('load', function(){
 function comecou()
 {
 //Dizendo o nome do Bolao
-  let valTemp = contractInstance.nomeBolao(function(error,result){
-    if(!error){
-      //console.log(result);
-      document.getElementById('nomeBolao').innerHTML += "Nome do Bolao: " + hex2a(result);
-    } else {
-      console.error(error);
-    }
-    
+  contractInstance.nomeBolao(function(error,result){
+    if(error){ console.error(error); } else { 
+      document.getElementById('nomeBolao').innerHTML += hex2a(result);
+    } 
   });
+
+  //Dizendo o valor da aposta
+  contractInstance.qualValorDoTicket(function(error,result){
+    if(error){ console.error(error); } else { 
+      document.getElementById('valorAposta').innerHTML += result.dividedBy('1e18') + " Ethers";
+    } 
+  });
+
+  //Dizendo o tempo
+  //Ha varios testes possiveis aqui (em particular, a questao do timezone)
+  contractInstance.tempoFinalDoBolao(function(error,result){
+    if(error){ console.error(error); } else { 
+      var dataFim = new Date(result.toNumber()*1000); 
+      var day = dataFim.getDate(); var month = dataFim.getMonth() + 1; year = dataFim.getFullYear();
+      var hour = dataFim.getHours(); var min = dataFim.getMinutes();
+      document.getElementById('dataHora').innerHTML += "dia "+ day + "/" + month  + "/" +year +" até as " +hour +":"+min  +" hs.";
+      //document.getElementById('tempoBolao').innerHTML += ". Obs: A hora é dada de acordo com a zona de tempo dado pelo seu Browser.";
+      web3.eth.getBlockNumber(function(error2, result2){ 
+        console.log(result);
+        //document.getElementById('tempoBolao').innerHTML += "O bolao acaba no Bloco: " + result + " e o bloco atual é:" + result2;
+      });
+    } 
+  });
+
 
 //Dizendo quanto paises estao no Bolao
   promiseNumDePaises = new Promise(function(resolve,reject){
@@ -44,7 +66,7 @@ function comecou()
       if(error) console.error(error); else{
 //        console.log(result);
         numDePaises = result;
-        document.getElementById('nomeBolao2').innerHTML = "Há " + result +" países.";
+        document.getElementById('qttdPaises').innerHTML += result +".";
         resolve(result);
       } //end if
     }); //end contractInstance.quantosPaises    
@@ -75,12 +97,86 @@ function comecou()
     Promise.all(p).then(function(response,rejection)  {
       paises.sort();
       for(var i=0; i < numDePaises; i++) {
-        document.getElementById('tabela1').innerHTML += '<tr> <td> <a href="#" onclick = "aposteEm( \'' + paises[i] +'\' )">' + hex2a(paises[i])+"</a></td> <td>"+ apostasNoPais[paises[i]] +" </td> </tr>";
+        document.getElementById('tabela1').innerHTML += '<tr> <td> <a href="#" onclick = "aposteEm( \'' 
+        + paises[i] +'\' )" id="a' + i  +'">'
+        + hex2a(paises[i])+"</a></td> <td>"+ apostasNoPais[paises[i]] +" </td> </tr>";
+
+        console.log('<tr> <td> <a href="#" onclick = "aposteEm( \'' 
+        + paises[i] +'\' ) id="a' + i  +'">'
+        
+        //+ paises[i] +'\' ) id="' + paises[i] +'">'
+        + hex2a(paises[i])+"</a></td> <td>"+ apostasNoPais[paises[i]] +" </td> </tr>");
        
       }//end for
+        if(!usingInfura)
+        {
+          console.log("Deve colocar onde o usuario apostou");
+          usuarioApostouEm();
+        }
+
     });//end Promise.all(p)
 
-  });//end then promiseNumDePaises  
+  });//end then promiseNumDePaises
+
+}
+
+function enderecoApostadoEmForm(){
+console.log("entrou em enderecoApostouEmForm()");
+  address = document.getElementById("enderecoApostouOnde").value;
+  enderecoApostouEm(address, " (*) ");
+}
+
+function enderecoApostouEm(address, simbolo)
+{
+  console.log("entrou em enderecoApostouEm(address)");
+    console.log(address);
+
+  for(var i=0; i < numDePaises; i++) {
+    
+    //console.log("Iteracao " + i + " " + paises[i]);
+    escopoCorretoAcima(address, paises[i],i,simbolo);
+  }//end for
+}
+//Mudar o nome da funcao
+function escopoCorretoAcima(address, pais,i,simbolo){
+  var a5 = "a"+i;
+  //a5 = "nomeBolao";
+  console.log(a5);
+  contractInstance.apostadoEm(address, pais,function(error, result){
+      if(error){
+      console.log("Deu erro");
+        console.log(error);
+      }
+        else
+      {      
+        if(result){
+          console.log(pais);
+          console.log(typeof pais);
+          console.log(result);
+          a2 = document.getElementById(a5);
+          console.log(typeof a2);
+          console.log(a2);
+
+          a2.innerHTML += simbolo;
+
+        } else{
+          console.log("Nao entrou na iteracao de" + pais);
+        }//if interno
+      }//if mais externo
+    });//end contract method s
+
+}
+
+//Sua ultima Aposta
+function usuarioApostouEm(){
+   web3.eth.getAccounts(function(error, result){
+     if(!error){
+       console.log(result);
+       console.log(result[0]);
+       //usar como valor, o valor do ticket
+       enderecoApostouEm(result[0], " (Apostado por você)");
+     }   
+   }); 
 }
 
 
@@ -124,7 +220,7 @@ function filtrando() {
     filter = input.value.toUpperCase();
     tr = document.getElementById("tabela1");
     th = tr.getElementsByTagName("tr");
-    console.log(th.length);
+    //console.log(th.length);
     for (i = 0; i < th.length; i++) {
         a = th[i].getElementsByTagName("a")[0];
         if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
