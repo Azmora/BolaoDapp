@@ -11,3 +11,6 @@ Criado pelo endereco: 0x45D161a85E862299c489addb48AFCe62433A6AE7
 
 
 Coloquei a data errada no enderco (dia 03/01/18): 0x9ef386fbc19bb8672a59f90b01d0cc7c8b8a7589
+
+
+O Bolao da copa, ultimo contrato estah no Gist: https://gist.github.com/anonymous/ccb4be068bc1365405b1680d8357b494
